@@ -1,7 +1,6 @@
 from circleshape import *
 from constants import *
 import random
-
 class Asteroid(CircleShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
@@ -24,6 +23,6 @@ class Asteroid(CircleShape):
         asteroid_2 = Asteroid(self.position.x, self.position.y, new_radius)
         asteroid_1.velocity = v1 * 1.2
         asteroid_2.velocity = v2 * 1.2
-
+        
 
 

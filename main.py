@@ -7,6 +7,11 @@ from asteroidfield import *
 
 def main():
     pygame.init()
+    pygame.font.init()
+    font = pygame.font.SysFont("Arial", 30)
+    player_score = 0
+
+
     print("Starting Asteroids!")
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -30,7 +35,7 @@ def main():
 
     
 
-    while True:
+    while True:    
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -47,8 +52,11 @@ def main():
                 if asteroid.is_colliding(shot):
                     asteroid.split()
                     shot.kill()
+                    player_score += 10
+        text_surface = font.render(f"Player score {player_score}", True, (255, 255, 255))
+        screen.blit(text_surface, (50, 50))           
             
-
+        
         pygame.display.flip()
         dt = clock.tick(60)/1000
 
