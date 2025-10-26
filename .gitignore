@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
-
+sounds
 # Virtual environments
 .venv
+laser_sound.m4a
