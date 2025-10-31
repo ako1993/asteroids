@@ -1,6 +1,8 @@
 from circleshape import *
 from constants import *
 import random
+from soundeffects import *
+
 class Asteroid(CircleShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
@@ -13,6 +15,7 @@ class Asteroid(CircleShape):
 
     def split(self):
         self.kill()
+        crash.play()
         if self.radius <= ASTEROID_MIN_RADIUS:
             return
         new_angle = random.uniform(20, 50)

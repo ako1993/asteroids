@@ -2,7 +2,8 @@
 from circleshape import *
 from constants import *
 from shot import *
-pygame.mixer.init()
+from soundeffects import *
+
 
 class Player(CircleShape):
     def __init__(self, x, y):
@@ -55,12 +56,12 @@ class Player(CircleShape):
         if self.timer > 0:
             return
         else:
+            self.timer = PLAYER_SHOOT_COOLDOWN
             player_shot = Shot(self.position.x, self.position.y)
             player_shot.velocity = pygame.math.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOT_SPEED
-            self.timer += PLAYER_SHOOT_COOLDOWN
-            laser_sound = pygame.mixer.Sound("sounds/laser-45816.mp3")
-            laser_sound.play()
-            laser_sound.fadeout(200)
+        
+            
+        
 
         
 
